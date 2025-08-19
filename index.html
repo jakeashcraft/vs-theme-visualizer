@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml">
+    <title>Visual Studio Theme Viewer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <div class="header-title">
+                <img src="logo.svg" alt="Logo" class="logo">
+                <h1>Visual Studio Theme Visualizer</h1>
+            </div>
+            <div class="header-controls">
+                <input type="file" id="fileInput" accept=".vstheme" />
+                <button id="exportBtn" disabled>Export Modified Theme</button>
+            </div>
+        </header>
+
+        <main>
+            <div id="loadingMessage" class="info-message">
+                Please load a .vstheme file to begin
+            </div>
+
+            <div id="themeInfo" class="theme-info hidden">
+                <h2 id="themeName"></h2>
+                <div class="stats">
+                    <span id="categoryCount"></span>
+                    <span id="colorCount"></span>
+                    <span id="modifiedCount" class="modified-badge hidden">0 modified</span>
+                </div>
+            </div>
+
+            <div id="filterControls" class="filter-controls hidden">
+                <input type="text" id="searchInput" placeholder="Search colors by name or value..." />
+                <select id="categoryFilter">
+                    <option value="">All Categories</option>
+                </select>
+                <div class="view-toggle">
+                    <button class="view-btn active" data-view="grid">Grid</button>
+                    <button class="view-btn" data-view="list">List</button>
+                </div>
+            </div>
+
+            <div id="colorContainer" class="color-container hidden">
+                <div id="colorGrid" class="color-grid"></div>
+            </div>
+        </main>
+
+        <div id="colorModal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3 id="modalColorName"></h3>
+                <div class="modal-body">
+                    <div class="color-preview">
+                        <div id="modalColorPreview" class="preview-box"></div>
+                    </div>
+                    <div class="color-details">
+                        <div class="detail-row">
+                            <label>Category:</label>
+                            <span id="modalCategory"></span>
+                        </div>
+                        <div class="detail-row">
+                            <label>Type:</label>
+                            <span id="modalColorType"></span>
+                        </div>
+                        <div class="detail-row">
+                            <label>Original:</label>
+                            <span id="modalOriginalColor"></span>
+                        </div>
+                        <div class="detail-row">
+                            <label>Current:</label>
+                            <input type="color" id="modalColorPicker" />
+                            <input type="text" id="modalColorHex" />
+                        </div>
+                    </div>
+                    <div class="modal-actions">
+                        <button id="resetColorBtn">Reset to Original</button>
+                        <button id="applyColorBtn">Apply Changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="dist/app.js"></script>
+</body>
+</html>
