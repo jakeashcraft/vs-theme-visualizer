@@ -4,6 +4,8 @@
 
 Visual Studio Theme Visualizer - A web-based tool that loads Visual Studio `.vstheme` files and displays their color palettes. Users can view, modify, and export theme colors through an interactive interface.
 
+![alt text](screenshots/screenshot.png)
+
 ## Development Commands
 
 ### TypeScript Compilation
